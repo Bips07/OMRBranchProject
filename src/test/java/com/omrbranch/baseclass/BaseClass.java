@@ -1,10 +1,13 @@
 package com.omrbranch.baseclass;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
@@ -30,7 +33,15 @@ public class BaseClass {
 	TakesScreenshot takesScreenshot;
 	Actions actions;
 	Alert alert;
+	Properties prop;
 
+	public String getPropertiesFileValue(String key) throws FileNotFoundException, IOException {
+		prop = new Properties();
+		prop.load(new FileInputStream(System.getProperty("user.dir")+"\\config\\config.properties"));
+		String value = prop.getProperty(key);
+		return value;
+	}
+	
 	public void scroll(WebElement element) {
 		executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].scrollIntoView()", element);
