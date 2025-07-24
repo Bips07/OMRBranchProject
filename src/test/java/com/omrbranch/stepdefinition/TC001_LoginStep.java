@@ -1,45 +1,48 @@
 package com.omrbranch.stepdefinition;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.junit.Assert;
 
 import com.omrbranch.baseclass.BaseClass;
+import com.omrbranch.objectmanager.PageObjectManager;
 import com.omrbranch.pages.ExploreHotelPage;
 import com.omrbranch.pages.LoginPage;
 
 import io.cucumber.java.en.*;
 
 public class TC001_LoginStep extends BaseClass{
-
-	LoginPage l ;
-	ExploreHotelPage e ;
+	
+	PageObjectManager pom = new PageObjectManager();
+	
 	@Given("User is on the OMR Branch hotel page")
-	public void user_is_on_the_omr_branch_hotel_page() {
+	public void user_is_on_the_omr_branch_hotel_page() throws FileNotFoundException, IOException {
 		browserLaunch();
-		driver.get("https://omrbranch.com");
-		System.out.println("tesing");
+		enterApplnUrl(getPropertiesFileValue("url"));
 	}
 
 	@When("User login {string} and {string}")
-	public void user_login_and(String string, String string2) {
-		l=new LoginPage();
-		l.login(string, string2);
+	public void user_login_and(String userName, String password) {
+		
+		pom.getLoginPage().login(userName, password);
 	}
 
 	@Then("User should verify success message after login {string}")
-	public void user_should_verify_success_message_after_login(String string) {
-		e=new ExploreHotelPage();
-		String msg = e.getLoginSuccessMessage();
-		Assert.assertEquals("Verify the welcome message", string, msg);
+	public void user_should_verify_success_message_after_login(String expMessage) {
+		
+		String actmsg = pom.getExploreHotelPage().getLoginSuccessMessage();
+		Assert.assertEquals("Verify the welcome message", expMessage, actmsg);
 	}
 
 	@When("User login {string} and {string} with enter key")
-	public void user_login_and_with_enter_key(String string, String string2) {
-		l.loginUsingEnterKey(string, string2);
+	public void user_login_and_with_enter_key(String userName, String password) {
+		pom.getLoginPage().loginUsingEnterKey(userName, password);
 	}
 
 	@Then("User should verify error message after login {string}")
-	public void user_should_verify_error_message_after_login(String string) {
-		String msg = l.getErrorMessage();
+	public void user_should_verify_error_message_after_login(String expMessage) {
+		String msg = pom.getLoginPage().getErrorMessage();
 		Assert.assertEquals("Verify the welcome message", "User does not exist", msg);
 	}
 

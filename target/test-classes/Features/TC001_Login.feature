@@ -1,3 +1,4 @@
+@login
 Feature: Verify the login functionality
 
   Scenario Outline: Verifying login with valid credentials without Enter Key
