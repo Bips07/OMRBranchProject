@@ -9,7 +9,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(tags = ("@login"),dryRun = false, monochrome = true, plugin = {
+@CucumberOptions(tags = ("@login"),dryRun = false, monochrome = false, plugin = {
 		"pretty",
 		"json:target\\Output.json" }, glue = "com.omrbranch.stepdefinition", features = "src\\test\\resources")
 

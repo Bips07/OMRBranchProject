@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -34,7 +33,18 @@ public class BaseClass {
 	Actions actions;
 	Alert alert;
 	Properties prop;
+	WebDriverWait wait;
 
+	public void switchFrameByElement(WebElement element) {
+		
+		driver.switchTo().frame(element);
+	}
+	
+	public void explicitWait(By by) {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+	}
+	
 	public String getPropertiesFileValue(String key) throws FileNotFoundException, IOException {
 		prop = new Properties();
 		prop.load(new FileInputStream(System.getProperty("user.dir")+"\\config\\config.properties"));
@@ -51,6 +61,9 @@ public class BaseClass {
 		driver.navigate().to(url);
 	}
 
+	public void switchToDefault()	{
+		driver.switchTo().defaultContent();
+	}
 	public void acceptAlert() {
 		alert = driver.switchTo().alert();
 		alert.accept();
@@ -70,8 +83,7 @@ public class BaseClass {
 	public void screenshot(String fileName) throws IOException {
 		takesScreenshot = (TakesScreenshot) driver;
 		File screenshotAs = takesScreenshot.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshotAs, new File(
-				"C:\\Users\\Velmurugan\\eclipse-workspace\\FrameworkClass930AMBatch\\output\\" + fileName + ".png"));
+		FileUtils.copyFile(screenshotAs, new File(System.getProperty("user.dir") +"\\target\\"+ fileName + ".png"));
 	}
 
 	public void switchToChildWindow() {
@@ -133,6 +145,7 @@ public class BaseClass {
 
 	public void selectOptionByValue(WebElement element, String text) {
 		select = new Select(element);
+		visibilityOfElement(element);
 		select.selectByValue(text);
 	}
 
@@ -227,6 +240,14 @@ public class BaseClass {
 		String domProperty = element.getDomProperty(attributeName);
 		return domProperty;
 	}
-
+	
+	public void timeOut(int sec) {
+		try {
+			Thread.sleep(sec);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
