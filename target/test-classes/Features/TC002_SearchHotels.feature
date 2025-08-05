@@ -1,4 +1,4 @@
-@login
+
 Feature: Verify the functionality of search feature
 
   Scenario Outline: Search hotels with all fields

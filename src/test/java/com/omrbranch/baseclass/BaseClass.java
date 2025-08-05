@@ -241,9 +241,9 @@ public class BaseClass {
 		return domProperty;
 	}
 	
-	public void timeOut(int sec) {
+	public void wait(int sec) {
 		try {
-			Thread.sleep(sec);
+			Thread.sleep(Duration.ofSeconds(sec));
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

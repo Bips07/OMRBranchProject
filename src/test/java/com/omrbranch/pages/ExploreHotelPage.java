@@ -302,7 +302,7 @@ public class ExploreHotelPage extends BaseClass {
 	public boolean checkDescendingOrder() {
 
 		int count = 0;
-		timeOut(2000);
+		wait(2);
 		for (WebElement element : textHotelNames) {
 			acthotelNames.add(elementGetText(element));
 			exphotelNames.add(elementGetText(element));
@@ -341,7 +341,7 @@ public class ExploreHotelPage extends BaseClass {
 	}
 
 	public boolean checkStandardRoomType() {
-		timeOut(2000);
+		wait(2);
 		for (WebElement element : textHotelNames) {
 			acthotelNames.add(elementGetText(element));
 		}
@@ -367,7 +367,7 @@ public class ExploreHotelPage extends BaseClass {
 
 	public boolean checkPriceLowToHigh() {
 		int count = 0;
-		timeOut(2000);
+		wait(2);
 		for (WebElement element : textHotelPrices) {
 			String text = elementGetText(element);
 			String price = (text.replace("$", "")).replace(",", "").strip();
