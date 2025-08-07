@@ -1,3 +1,4 @@
+
 Feature: Verify the functionality of search feature
 
   Scenario Outline: Search hotels with all fields
@@ -9,7 +10,7 @@ Feature: Verify the functionality of search feature
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1-One      | 1-One        |            1 |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 |
 
   Scenario Outline: Search hotels with only mandatory fields
     Given User is on the OMR Branch hotel page
@@ -20,14 +21,14 @@ Feature: Verify the functionality of search feature
 
     Examples: 
       | User name           | Password   | State          | city     | Check in date | Check out date | No of Room | No of Adults |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | 18 July 2025  | 28 July 2025   | 1-One      | 1-One        |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | 18 July 2025  | 28 July 2025   | 1      | 1        |
 
   Scenario Outline: Search hotels without entering any fields and verifying the error messages
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
     Then User should verify success message after login "Welcome Bipin"
     And User click Search button
-    Then User should verify after search hotel error message "Please select State" ,"Please select city" ,"Please select Check-in date" ,"Please select Check out date " ,"Please select no. of rooms" and "Please select no. of adults"
+    Then User should verify after search hotel error message "Please select state" ,"Please select city" ,"Please select Check-in date" ,"Please select Check-out date" ,"Please select no. of rooms" and "Please select no. of adults"
 
     Examples: 
       | User name | Password |
@@ -44,7 +45,7 @@ Feature: Verify the functionality of search feature
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1-One      | 1-One        |            1 |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 |
 
   Scenario Outline: Search hotels with all fields and verify the hotel name in Descending order
     Given User is on the OMR Branch hotel page
@@ -57,7 +58,7 @@ Feature: Verify the functionality of search feature
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1-One      | 1-One        |            1 |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 |
 
   Scenario Outline: Search hotels with all fields and select all room type verify the header
     Given User is on the OMR Branch hotel page
@@ -69,7 +70,7 @@ Feature: Verify the functionality of search feature
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Suite/Deluxe/Standard    | 18 July 2025  | 28 July 2025   | 1-One      | 1-One        |            1 |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Suite/Deluxe/Standard    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 |
 
   Scenario Outline: Search hotel with all fields and verify the Standard room type are listed
     Given User is on the OMR Branch hotel page
@@ -82,4 +83,4 @@ Feature: Verify the functionality of search feature
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1-One      | 1-One        |            1 |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 |
