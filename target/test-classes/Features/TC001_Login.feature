@@ -1,6 +1,6 @@
-@login
-Feature: Verify the login functionality
 
+Feature: Verify the login functionality
+@login
   Scenario Outline: Verifying login with valid credentials without Enter Key
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -9,11 +9,11 @@ Feature: Verify the login functionality
     Examples: 
       | User name           | Password   |
       | bipevstar@gmail.com | Chayowo@12 |
-
+@login1
   Scenario Outline: Verifying login with valid credentials with Enter Key
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>" with enter key
-    Then User should verify success message after login "Welcome Bipin"
+    Then User should verify success message after login "Welcom Bipin"
 
     Examples: 
       | User name           | Password   |
