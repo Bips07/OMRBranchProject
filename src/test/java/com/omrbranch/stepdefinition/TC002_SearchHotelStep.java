@@ -31,6 +31,7 @@ public class TC002_SearchHotelStep extends BaseClass {
 
 		pom.getExploreHotelPage().searchHotel(state, city, checkInDate, checkOutDate, noOfRooms, noOfAdults);
 
+	
 	}
 
 	@When("User click sort from low to high")

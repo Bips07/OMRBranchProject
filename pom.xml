@@ -15,9 +15,10 @@
 					<configuration>
 					<includes>
 					<include>
-					*/TestRunner*.java</include>
+					*/TestRunner*.java
+					</include>
 					</includes>
-					<forkCount>2</forkCount>
+					<forkCount>3</forkCount>
 					</configuration>
 				</plugin>
 			</plugins>
