@@ -21,7 +21,7 @@ public class TC002_SearchHotelStep extends BaseClass {
 
 	@Then("User should verify after search hotel success message {string}")
 	public void user_should_verify_after_search_hotel_success_message(String string) throws InterruptedException {
-
+		timeOut(10);
 		pom.getSelectHotelPage().getSelectHotelString();
 	}
 
@@ -31,6 +31,7 @@ public class TC002_SearchHotelStep extends BaseClass {
 
 		pom.getExploreHotelPage().searchHotel(state, city, checkInDate, checkOutDate, noOfRooms, noOfAdults);
 
+	
 	}
 
 	@When("User click sort from low to high")
