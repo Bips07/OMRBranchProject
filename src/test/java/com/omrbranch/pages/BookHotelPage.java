@@ -172,4 +172,9 @@ public class BookHotelPage extends BaseClass {
 	public WebElement getBtnSubmit() {
 		return btnSubmit;
 	}
+	
+	public String getTextBookHotel() {
+		String text = elementGetText(textHotelName);
+		return text;
+	}
 }

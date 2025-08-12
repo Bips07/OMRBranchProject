@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.foreign.Linker.Option;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -34,12 +36,21 @@ public class BaseClass {
 	Alert alert;
 	Properties prop;
 	WebDriverWait wait;
+	static ChromeOptions arg;
 
 	public void switchFrameByElement(WebElement element) {
 		
 		driver.switchTo().frame(element);
 	}
 	
+	public void elementClickJS(WebElement element) {
+		executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();",element);
+	}
+	
+	public void timeOut(int sec) {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(sec));
+	}
 	public void explicitWait(By by) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -54,7 +65,7 @@ public class BaseClass {
 	
 	public void scroll(WebElement element) {
 		executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].scrollIntoView()", element);
+		executor.executeScript("arguments[0].scrollIntoView({block:'center'})", element);
 	}
 
 	public void navigateTo(String url) {
@@ -150,6 +161,8 @@ public class BaseClass {
 	}
 
 	public static void browserLaunch() {
+		arg = new ChromeOptions();
+		arg.addArguments("--headless");
 		driver = new ChromeDriver();
 	}
 
