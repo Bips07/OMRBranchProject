@@ -8,9 +8,11 @@ import com.omrbranch.baseclass.BaseClass;
 
 public class BookingConfirmationPage extends BaseClass{
 	
+	
 	public BookingConfirmationPage() {
 		PageFactory.initElements(driver,this);
 	}
+	static String bookingId;
 	
 	@FindBy(xpath ="//*[@class='couppon-code']/strong")
 	private WebElement textBookingId;
@@ -39,5 +41,19 @@ public class BookingConfirmationPage extends BaseClass{
 	public WebElement getLstBtnList() {
 		return lstBtnList;
 	}
-
+	
+	public String getBookingId() {
+		bookingId = elementGetText(textBookingId).replace("#","");
+		return bookingId;
+	}
+	
+	public String getBookedHotelName() {
+		String hotelName = elementGetText(textHotelName);
+		return hotelName;
+	}
+	
+	public String getBookingConfirmedText() {
+		String bookingConfirmed = elementGetText(textBooking);
+		return bookingConfirmed;
+	}
 }

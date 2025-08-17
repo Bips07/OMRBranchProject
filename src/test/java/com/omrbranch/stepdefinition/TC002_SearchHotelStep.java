@@ -11,10 +11,11 @@ public class TC002_SearchHotelStep extends BaseClass {
 
 	PageObjectManager pom = new PageObjectManager();
 
+	static String roomType;
 	@When("User search hotel {string},{string},{string},{string},{string},{string},{string} and {string}")
 	public void user_search_hotel_and(String state, String city, String roomType, String checkInDate,
 			String checkOutDate, String noOfRooms, String noOfAdults, String noOfChildren) {
-
+		TC002_SearchHotelStep.roomType = roomType;
 		pom.getExploreHotelPage().searchHotel(state, city, roomType, checkInDate, checkOutDate, noOfRooms, noOfAdults,
 				noOfChildren);
 	}
