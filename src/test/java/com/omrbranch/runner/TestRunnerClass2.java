@@ -9,7 +9,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(tags = ("@select or @search or @login"),dryRun = false, monochrome = false, plugin = {
+@CucumberOptions(tags = ("@book"),dryRun = false, monochrome = false, plugin = {
 		"pretty",
 		"json:target\\Search.json" }, glue = "com.omrbranch.stepdefinition", features = "src\\test\\resources")
 
