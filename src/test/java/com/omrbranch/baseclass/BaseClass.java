@@ -164,6 +164,9 @@ public class BaseClass {
 //		arg.addArguments("--incognito");
 //		arg.addArguments("--headless");
 		driver = new ChromeDriver(arg);
+		if(driver!=null) {
+			driver.manage().deleteAllCookies();
+		}
 	}
 
 	public static void enterApplnUrl(String url) {

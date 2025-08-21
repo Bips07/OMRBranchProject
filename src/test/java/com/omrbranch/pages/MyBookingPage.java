@@ -2,6 +2,7 @@ package com.omrbranch.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.PageFactory;
@@ -21,7 +22,7 @@ public class MyBookingPage extends BaseClass {
 	@FindBy(xpath = "//*[@class='form-control w-50 d-inline-block']")
 	private WebElement txtSearch;
 
-	@FindBy(xpath = "//*[@class='my-booking  prize']/button")
+	@FindBy(xpath = "//button[text()='Edit']")
 	private List<WebElement> btnEdit;
 
 	@FindBy(xpath = "//*[@class='col-md-7 mobile-space-none']/a/h5")
@@ -41,6 +42,7 @@ public class MyBookingPage extends BaseClass {
 
 	@FindBy(xpath = "//*[@class='alertMsg']")
 	private WebElement textAlertMsg;
+	private By byTextAlertMsg = By.xpath("//*[@class='alertMsg']");
 
 	@FindAll({ @FindBy(xpath = "//div[@class='my-booking  prize']/*[contains(text(),'Cancel')]") })
 	private List<WebElement> btnCancel;
@@ -112,6 +114,7 @@ public class MyBookingPage extends BaseClass {
 	}
 
 	public String getMessage() {
+		explicitWait(byTextAlertMsg);
 		String text = elementGetText(textAlertMsg);
 		return text;
 	}
@@ -141,11 +144,15 @@ public class MyBookingPage extends BaseClass {
 
 	public void selectLastHotel() {
 		int lastIndex = btnEdit.size() - 1;
-		elementClickJS(btnEdit.get(lastIndex));
+		if(elementGetText(btnEdit.get(lastIndex)).equals("Edit"))
+				elementClickJS(btnEdit.get(lastIndex));
+		else
+			System.out.println("No edit button");
 	}
 
 	public void clickCancel() {
 		elementClickJS(btnCancel.get(0));
+		
 	}
 
 	public void cancelFirstHotel() {
@@ -169,12 +176,11 @@ public class MyBookingPage extends BaseClass {
 	}
 
 	public void cancelExistingOrderId(String OrderId) {
-		System.out.println(lstBookingId);
-		System.out.println(btnCancel);
 		for (int i = 0; i < lstBookingId.size(); i++) {
 			if (elementGetText(lstBookingId.get(i)).equals(OrderId)) {
 				if (elementGetText(btnCancel.get(i)).equals("Cancelled")) {
 					System.out.println("Order already Cancelled");
+					break;
 				} else {
 					scroll(lstBookingId.get(i));
 					btnCancel.get(i).isSelected();

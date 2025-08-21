@@ -12,7 +12,8 @@ public class HooksClass extends BaseClass {
 
 	@Before
 	public void before() {
-
+		waitTime(15);
+		
 	}
 
 	@After
