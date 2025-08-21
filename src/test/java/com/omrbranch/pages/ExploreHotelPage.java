@@ -29,6 +29,9 @@ public class ExploreHotelPage extends BaseClass {
 		return textWelcome;
 	}
 
+	@FindBy(xpath = "//a[text()='My Account']")
+	private WebElement btnMyAccount;
+	
 	@FindBy(xpath = "//*[@data-href='https://omrbranch.com/hotel-booking']")
 	private WebElement lnkHotel;
 
@@ -302,7 +305,7 @@ public class ExploreHotelPage extends BaseClass {
 	public boolean checkDescendingOrder() {
 
 		int count = 0;
-		wait(2);
+		waitTime(2);
 		for (WebElement element : textHotelNames) {
 			acthotelNames.add(elementGetText(element));
 			exphotelNames.add(elementGetText(element));
@@ -341,7 +344,7 @@ public class ExploreHotelPage extends BaseClass {
 	}
 
 	public boolean checkStandardRoomType() {
-		wait(2);
+		waitTime(2);
 		for (WebElement element : textHotelNames) {
 			acthotelNames.add(elementGetText(element));
 		}
@@ -367,7 +370,7 @@ public class ExploreHotelPage extends BaseClass {
 
 	public boolean checkPriceLowToHigh() {
 		int count = 0;
-		wait(2);
+		waitTime(2);
 		for (WebElement element : textHotelPrices) {
 			String text = elementGetText(element);
 			String price = (text.replace("$", "")).replace(",", "").strip();
@@ -384,5 +387,10 @@ public class ExploreHotelPage extends BaseClass {
 			return true;
 		}
 		return false;
+	}
+	
+	public void clickMyAccount() {
+		elementClick(textWelcome);
+		elementClick(btnMyAccount);
 	}
 }

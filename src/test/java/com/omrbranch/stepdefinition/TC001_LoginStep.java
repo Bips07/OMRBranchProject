@@ -7,8 +7,6 @@ import org.junit.Assert;
 
 import com.omrbranch.baseclass.BaseClass;
 import com.omrbranch.objectmanager.PageObjectManager;
-import com.omrbranch.pages.ExploreHotelPage;
-import com.omrbranch.pages.LoginPage;
 
 import io.cucumber.java.en.*;
 

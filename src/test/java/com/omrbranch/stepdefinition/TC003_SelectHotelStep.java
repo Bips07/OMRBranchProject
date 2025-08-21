@@ -55,7 +55,7 @@ public class TC003_SelectHotelStep extends BaseClass {
 	public void user_save_the_first_hotel_name_and_hotel_price() {
 		
 		firstHotelName = pom.getSelectHotelPage().getFirstHotelName().replace(TC002_SearchHotelStep.roomType, "").trim();
-		firstHotelPrice = pom.getSelectHotelPage().getFirstHotelPrice();
+		firstHotelPrice = pom.getSelectHotelPage().getFirstHotelPrice().replace("$", "").strip();
 	}
 	@When("User select the first hotel and accept the alert")
 	public void user_select_the_first_hotel_and_accept_the_alert() {
