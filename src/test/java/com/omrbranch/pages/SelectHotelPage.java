@@ -57,7 +57,7 @@ public class SelectHotelPage extends BaseClass {
 	public String getSelectHotelString() {
 
 		shadowHost();
-//		explicitWait(byTextSelectHotel);
+		explicitWait(byTextSelectHotel);
 		timeOut(5);
 		String msg = elementGetText(textSelectHotel);
 		return msg;

@@ -1,5 +1,5 @@
 Feature: Verify the Change booking module
-@changeBooking
+@change
   Scenario Outline: Modify the Created Order Id - Book hotel by card (debit card)
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -60,7 +60,7 @@ Feature: Verify the Change booking module
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Request              | Upi ID       | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | Valet parking needed | test@okicici | 2025-12-10 |
-@changeBooking
+@change
   Scenario Outline: Modify the Created Order Id - Book hotel by card (debit card) without GST and with special request
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -93,7 +93,7 @@ Feature: Verify the Change booking module
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Request              | Card Type | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | Valet parking needed | Debit Card      | 2025-12-10|
-@changeBooking
+@change
   Scenario Outline: Modify the Created Order Id - Book hotel by card (debit card) without special request and with GST
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -126,7 +126,7 @@ Feature: Verify the Change booking module
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Card Type | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | Debit Card      | 2025-12-10 |
-@changeBooking
+@change
   Scenario Outline: Modify the Created Order Id - Book hotel by card (debit card) without special request and without GST
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -243,7 +243,7 @@ Feature: Verify the Change booking module
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Upi ID          | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | testupi@okicici | 2025-12-10 |
-@changeBooking
+@change
   Scenario Outline: Modify Check-in Date for existing Order ID
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -258,7 +258,7 @@ Feature: Verify the Change booking module
     Examples: 
       | User name           | Password   | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | 2025-12-10|
- @changeBooking    
+ @change    
   Scenario Outline: Modify Check-in Date for first displayed Order ID
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -271,7 +271,7 @@ Feature: Verify the Change booking module
     Examples: 
       | User name           | Password   | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | 2025-12-10 |
-@changeBooking
+@change
   Scenario Outline: Modify Check-in Date for last displayed Order ID
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"

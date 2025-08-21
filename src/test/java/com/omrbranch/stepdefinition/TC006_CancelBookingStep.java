@@ -17,7 +17,9 @@ public class TC006_CancelBookingStep extends BaseClass {
 
 	@Then("User should verify after cancel booking success message {string}")
 	public void user_should_verify_after_cancel_booking_success_message(String expMessage) {
+//		waitTime(1);
 		acceptAlert();
+		waitTime(1);
 		String actMessage = pom.getMyBookingPage().getMessage();
 		Assert.assertEquals("Cancel message is incorrect", expMessage,actMessage);
 		

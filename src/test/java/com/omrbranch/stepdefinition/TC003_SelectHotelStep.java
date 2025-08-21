@@ -43,7 +43,6 @@ public class TC003_SelectHotelStep extends BaseClass {
 	public void user_save_the_last_hotel_name_and_hotel_price() {
 		lastHotelName = pom.getSelectHotelPage().getLastHotelName();
 		lastHotelPrice = pom.getSelectHotelPage().getLastHotelPrice();
-		System.out.println(lastHotelName);
 	}
 	@When("User select the last hotel and accept the alert")
 	public void user_select_the_last_hotel_and_accept_the_alert() {

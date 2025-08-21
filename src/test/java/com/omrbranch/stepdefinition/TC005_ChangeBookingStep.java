@@ -38,14 +38,14 @@ public class TC005_ChangeBookingStep extends BaseClass{
 
 	@Then("User should verify same booked Hotel Name is present or not")
 	public void user_should_verify_same_booked_hotel_name_is_present_or_not() {
-		waitTime(5);
+		waitTime(2);
 		String actHotelName = pom.getMyBookingPage().getHotelName();
 		Assert.assertTrue("Hotel Name is not same", actHotelName.contains(TC003_SelectHotelStep.firstHotelName));
 	}
 
 	@Then("User should verify same booked Hotel Price is present or not")
 	public void user_should_verify_same_booked_hotel_price_is_present_or_not() {
-		waitTime(5);
+		waitTime(2);
 		String actHotelPrice = pom.getMyBookingPage().getHotelPrice();
 		Assert.assertEquals("Hotel Price is not same", TC003_SelectHotelStep.firstHotelPrice,actHotelPrice);
 	}

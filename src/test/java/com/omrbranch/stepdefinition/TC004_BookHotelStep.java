@@ -53,8 +53,6 @@ public class TC004_BookHotelStep extends BaseClass{
 	@Then("User should verify same selected Hotel is booked or not")
 	public void user_should_verify_same_selected_hotel_is_booked_or_not() {
 		String bookedHotelName = pom.getBookingConfirmationPage().getBookedHotelName();
-		System.out.println(bookedHotelName);
-		System.out.println(TC003_SelectHotelStep.firstHotelName);
 		Assert.assertEquals("Booked hotels are not same", TC003_SelectHotelStep.firstHotelName,bookedHotelName);
 		
 	}
