@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.foreign.Linker.Option;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -162,8 +161,9 @@ public class BaseClass {
 
 	public static void browserLaunch() {
 		arg = new ChromeOptions();
-		arg.addArguments("--headless");
-		driver = new ChromeDriver();
+//		arg.addArguments("--incognito");
+//		arg.addArguments("--headless");
+		driver = new ChromeDriver(arg);
 	}
 
 	public static void enterApplnUrl(String url) {
@@ -179,6 +179,12 @@ public class BaseClass {
 		if (elementIsDisplayed(element) && elementIsEnabled(element)) {
 			element.sendKeys(data);
 		}
+	}
+	
+	public void elementClear(WebElement element) {
+		visibilityOfElement(element);
+		if(element.isDisplayed()&&element.isEnabled())
+			element.clear();
 	}
 
 	public void elementSendKeysEnter(WebElement element, String data) {
@@ -254,13 +260,18 @@ public class BaseClass {
 		return domProperty;
 	}
 	
-	public void wait(int sec) {
+	public void waitTime(int sec) {
 		try {
 			Thread.sleep(Duration.ofSeconds(sec));
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void highlight(WebElement element) {
+		executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 
 }

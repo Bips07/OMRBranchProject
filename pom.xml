@@ -15,7 +15,7 @@
 					<configuration>
 					<includes>
 					<include>
-					*/TestRunnerClass2.java
+					*/TestRunnerClass2*.java
 					</include>
 					</includes>
 					<forkCount>1</forkCount>

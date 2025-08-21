@@ -13,6 +13,7 @@ import io.cucumber.java.en.*;
 public class TC004_BookHotelStep extends BaseClass{
 
 	PageObjectManager pom = new PageObjectManager();
+	public static String bookingId;
 	@When("User add Guest Details {string},{string},{string},{string} and {string}")
 	public void user_add_guest_details_and(String salutation, String firstName, String lastName, String mobileNumber,
 			String email) {
@@ -34,15 +35,16 @@ public class TC004_BookHotelStep extends BaseClass{
 	}
 
 	@When("User enter payment details, procced with Card Type {string}")
-	public void user_enter_payment_details_procced_with_card_type(String cardType,
-			io.cucumber.datatable.DataTable dataTable) {
+	public void user_enter_payment_details_procced_with_card_type(String cardType,io.cucumber.datatable.DataTable dataTable) {
 		List<Map<String, String>> asMap = dataTable.asMaps();
 		Map<String,String> cardDetails = asMap.get(0);
-		pom.getBookHotelPage().addPayment(cardType, cardDetails.get("Select Card"), cardDetails.get("Card No"), cardDetails.get("Card Name"), cardDetails.get("Month"), cardDetails.get("Year"), cardDetails.get("CVV"));
+		pom.getBookHotelPage().addPayment(cardType, cardDetails.get("Select Card"), cardDetails.get("Card No"), 		cardDetails.get("Card Name"), cardDetails.get("Month"), cardDetails.get("Year"), cardDetails.get("CVV"));
 	}
 
 	@When("User should verify after hotel booking success message {string} and save the order ID")
 	public void user_should_verify_after_hotel_booking_success_message_and_save_the_order_id(String expMessage) {
+		
+		bookingId = pom.getBookingConfirmationPage().getBookingId();
 		String actMessage = pom.getBookingConfirmationPage().getBookingConfirmedText();
 		Assert.assertTrue("Booking confirmed text is not present",actMessage.contains(expMessage));
 		

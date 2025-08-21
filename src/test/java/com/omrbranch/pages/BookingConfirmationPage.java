@@ -1,5 +1,7 @@
 package com.omrbranch.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,7 +26,7 @@ public class BookingConfirmationPage extends BaseClass{
 	private WebElement textHotelName;
 	
 	@FindBy(xpath ="//*[@class='btn filter_btn']")
-	private WebElement lstBtnList;
+	private List<WebElement> lstBtnList;
 
 	public WebElement getTextBookingId() {
 		return textBookingId;
@@ -38,7 +40,7 @@ public class BookingConfirmationPage extends BaseClass{
 		return textHotelName;
 	}
 
-	public WebElement getLstBtnList() {
+	public List<WebElement> getLstBtnList() {
 		return lstBtnList;
 	}
 	
@@ -55,5 +57,9 @@ public class BookingConfirmationPage extends BaseClass{
 	public String getBookingConfirmedText() {
 		String bookingConfirmed = elementGetText(textBooking);
 		return bookingConfirmed;
+	}
+	
+	public void clickBtnMyBooking() {
+		elementClick(lstBtnList.get(1));
 	}
 }
