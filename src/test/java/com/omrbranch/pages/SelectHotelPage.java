@@ -16,9 +16,9 @@ public class SelectHotelPage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//*[@id='searchform']/preceding-sibling::h5")
+	@FindBy(xpath = "//*[text()='Select Hotel']")
 	private WebElement textSelectHotel;
-	By byTextSelectHotel = By.xpath("//*[@id='searchform']/preceding-sibling::h5");
+	By byTextSelectHotel = By.xpath("//*[text()='Select Hotel']");
 
 	@FindBy(xpath = "//div[@class='col-md-5 hotel-suites']/h5")
 	private List<WebElement> lstHotelNames;
@@ -56,9 +56,10 @@ public class SelectHotelPage extends BaseClass {
 
 	public String getSelectHotelString() {
 
+		waitTime(5);
 		shadowHost();
 		explicitWait(byTextSelectHotel);
-		timeOut(5);
+		
 		String msg = elementGetText(textSelectHotel);
 		return msg;
 	}

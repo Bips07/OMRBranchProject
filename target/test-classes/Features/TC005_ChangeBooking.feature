@@ -1,3 +1,4 @@
+@change
 Feature: Verify the Change booking module
 @change
   Scenario Outline: Modify the Created Order Id - Book hotel by card (debit card)
@@ -32,7 +33,7 @@ Feature: Verify the Change booking module
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Request              | Card Type | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | Valet parking needed | Debit Card      | 2025-12-10 |
-
+@change
   Scenario Outline: Modify the Created Order Id - Book hotel by  (UPI ID)
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -159,11 +160,11 @@ Feature: Verify the Change booking module
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Card Type | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | Debit Card      | 2025-12-10 |
-
+@change
   Scenario Outline: Modify the Created Order Id - Book hotel by  (UPI ID) without special request and with GST
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
-    Then User should verify success message after login "Welcome Srini"
+    Then User should verify success message after login "Welcome Bipin"
     When User search hotel "<State>","<city>","<Room type>","<Check in date>","<Check out date>","<No of Room>","<No of Adults>" and "<No of Childs>"
     Then User should verify after search hotel success message "Select Hotel"
     When User save the first hotel name and hotel price
@@ -186,12 +187,12 @@ Feature: Verify the Change booking module
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Upi ID          | Modify Date  |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | testupi@okicici | 2025-12-10 |
-
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | javatraining@vbc | 2025-12-10 |
+@change
   Scenario Outline: Modify the Created Order Id - Book hotel by  (UPI ID) without special request and without GST
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
-    Then User should verify success message after login "Welcome Srini"
+    Then User should verify success message after login "Welcome Bipin"
     When User search hotel "<State>","<city>","<Room type>","<Check in date>","<Check out date>","<No of Room>","<No of Adults>" and "<No of Childs>"
     Then User should verify after search hotel success message "Select Hotel"
     When User save the first hotel name and hotel price
@@ -214,8 +215,8 @@ Feature: Verify the Change booking module
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Upi ID          | Modify Date  |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | testupi@okicici | 2025-12-10 |
-
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | javatraining@vbc | 2025-12-10 |
+@change
   Scenario Outline: Modify the Created Order Id - Book hotel by  (UPI ID) with special request and without GST
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -242,7 +243,7 @@ Feature: Verify the Change booking module
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Upi ID          | Modify Date  |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | testupi@okicici | 2025-12-10 |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2026  | 28 July 2026   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | javatraining@vbc | 2025-12-10 |
 @change
   Scenario Outline: Modify Check-in Date for existing Order ID
     Given User is on the OMR Branch hotel page

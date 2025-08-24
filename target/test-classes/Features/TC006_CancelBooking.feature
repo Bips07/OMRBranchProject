@@ -38,7 +38,7 @@ Feature: Verify the Cancel booking module
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Request              | Card Type | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | Valet parking needed | Debit Card      | 2025-10-02 |
-
+@cancel
   Scenario Outline: Cancel the Created Order Id - Book hotel by  (UPI ID)
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -71,7 +71,7 @@ Feature: Verify the Cancel booking module
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Request              | Upi ID | Modify Date  |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | Valet parking needed | Debit Card   | 2025-10-02 |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | Valet parking needed | javatraining@vbc   | 2025-10-02 |
 @cancel
   Scenario Outline: Cancel the Created Order Id - Book hotel by card (debit card) without special request and with GST
     Given User is on the OMR Branch hotel page
@@ -150,7 +150,7 @@ Feature: Verify the Cancel booking module
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Card Type | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | Debit Card      | 2025-10-02 |
-
+@cancel
   Scenario Outline: Cancel the Created Order Id - Book hotel by  (UPI ID) without special request and with GST
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -183,8 +183,8 @@ Feature: Verify the Cancel booking module
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Upi ID       | Modify Date  |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | test@okicici | 2025-10-02 |
-
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | javatraining@vbc | 2025-10-02 |
+@cancel
   Scenario Outline: Cancel the Created Order Id - Book hotel by  (UPI ID) without special request and without GST
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -217,7 +217,7 @@ Feature: Verify the Cancel booking module
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Upi ID       | Modify Date  |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | test@okicici | 2025-10-02 |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | javatraining@vbc | 2025-10-02 |
 
   Scenario Outline: Cancel the existing Order ID
     Given User is on the OMR Branch hotel page
@@ -225,7 +225,7 @@ Feature: Verify the Cancel booking module
     Then User should verify success message after login "Welcome Bipin"
     When User navigate to My Booking page from Home page
     Then User should verify after navigate to My Booking page success message as "Bookings"
-    When User should Cancel the existing order ID "#SDQSN76001"
+    When User should Cancel the existing order ID "#YGUNB87648"
     Then User should verify after cancel booking success message "Your booking cancelled successfully"
 
     Examples: 
@@ -296,7 +296,7 @@ Feature: Verify the Cancel booking module
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Request              | Card Type | Modify Date  |
       | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | Valet parking needed | Debit Card      | 2025-10-02 |
-
+@cancel
   Scenario Outline: Cancel the Created Order Id - Book hotel by  (UPI ID) with special request and without GST
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -329,4 +329,4 @@ Feature: Verify the Cancel booking module
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Request              | Upi ID       | Modify Date  |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | Valet parking needed | test@okicici | 2025-10-02 |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | Valet parking needed | javatraining@vbc | 2025-10-02 |
