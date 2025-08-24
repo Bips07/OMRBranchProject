@@ -368,4 +368,9 @@ public class BookHotelPage extends BaseClass {
 		String text = elementGetText(textInvalidUpi);
 		return text;
 	}
+	
+	public void enterUpiDetails(String upiId) {
+		elementSendKeys(txtUpiId, upiId);
+		clickBtnSubmit();
+	}
 }

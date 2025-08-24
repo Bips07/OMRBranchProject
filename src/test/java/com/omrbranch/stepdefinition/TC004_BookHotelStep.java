@@ -98,7 +98,9 @@ public class TC004_BookHotelStep extends BaseClass{
 	}
 
 	@When("User enter upi details {string} and click submit")
-	public void user_enter_upi_details_and_click_submit(String string) {
+	public void user_enter_upi_details_and_click_submit(String upiId) {
+		pom.getBookHotelPage().clickBtnUpi();
+		pom.getBookHotelPage().enterUpiDetails(upiId);
 	}
 
 	@When("User click upi")

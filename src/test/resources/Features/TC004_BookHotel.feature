@@ -119,7 +119,7 @@ Feature: Verify the Booking Module
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Request              |
       | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | Valet parking needed |
-
+@book
   Scenario Outline: Book hotel including GST-(UPI ID)-With special request
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -138,8 +138,8 @@ Feature: Verify the Booking Module
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Request              | Upi ID          |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | Valet parking needed | testupi@okicici |
-
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | Valet parking needed | javatraining@vbc |
+@book
   Scenario Outline: Book hotel including GST-(UPI ID)-Without special request
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -151,14 +151,15 @@ Feature: Verify the Booking Module
     Then User should verify after select success message "Book Hotel"
     When User add Guest Details "<Select Salutation>","<First Name>","<Last Name>","<Mobile No.>" and "<Email>"
     And User add GST Details "<Enter Registration No.>","<Enter Company Name>" and "<Enter Company Address>"
+    And User clicks on Next button without entering special request
     And User enter upi details "<Upi ID>" and click submit
     And User should verify after hotel booking success message "Booking is Confirmed" and save the order ID
     Then User should verify same selected Hotel is booked or not
 
     Examples: 
-      | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Upi ID          |  |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | testupi@okicici |  |
-
+      | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Enter Registration No. | Enter Company Name     | Enter Company Address | Upi ID          |  
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com |             9043592058 | Greens Tech OMR Branch | Thoraipakkam          | javatraining@vbc | 
+@book
   Scenario Outline: Book hotel without GST-(UPI ID)-With special request
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -169,15 +170,16 @@ Feature: Verify the Booking Module
     And User select the first hotel and accept the alert
     Then User should verify after select success message "Book Hotel"
     When User add Guest Details "<Select Salutation>","<First Name>","<Last Name>","<Mobile No.>" and "<Email>"
+    And User clicks on Next button without opting for GST
     And User add Special Request "<Request>"
     And User enter upi details "<Upi ID>" and click submit
     And User should verify after hotel booking success message "Booking is Confirmed" and save the order ID
     Then User should verify same selected Hotel is booked or not
 
     Examples: 
-      | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Request              | Upi ID          |  |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | Valet parking needed | testupi@okicici |  |
-
+      | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Request              | Upi ID          |  
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | Valet parking needed | javatraining@vbc |
+@book
   Scenario Outline: Book hotel without GST-(UPI ID)-Without special request
     Given User is on the OMR Branch hotel page
     When User login "<User name>" and "<Password>"
@@ -188,13 +190,15 @@ Feature: Verify the Booking Module
     And User select the first hotel and accept the alert
     Then User should verify after select success message "Book Hotel"
     When User add Guest Details "<Select Salutation>","<First Name>","<Last Name>","<Mobile No.>" and "<Email>"
+    And User clicks on Next button without opting for GST
+    And User clicks on Next button without entering special request
     And User enter upi details "<Upi ID>" and click submit
     And User should verify after hotel booking success message "Booking is Confirmed" and save the order ID
     Then User should verify same selected Hotel is booked or not
 
     Examples: 
       | User name           | Password   | State          | city     | Room type | Check in date | Check out date | No of Room | No of Adults | No of Childs | Select Salutation | First Name | Last Name | Mobile No. | Email          | Request              | Upi ID          |
-      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | Valet parking needed | testupi@okicici |
+      | bipevstar@gmail.com | Chayowo@12 | Andhra Pradesh | Tirupati | Deluxe    | 18 July 2025  | 28 July 2025   | 1      | 1        |            1 | Mr.               | Arun       | Kumar     | 1236549873 | test@gmail.com | Valet parking needed | javatraining@vbc |
 @book
   Scenario Outline: Book hotel without entering any field in upi field , book field and verify all the error message
     Given User is on the OMR Branch hotel page
