@@ -226,7 +226,7 @@ Feature: Verify the Cancel booking module
     Then User should verify success message after login "Welcome Bipin"
     When User navigate to My Booking page from Home page
     Then User should verify after navigate to My Booking page success message as "Bookings"
-    When User should Cancel the existing order ID "#BFOHG06804"
+    When User should Cancel the existing order ID "#GIZCE77578"
     Then User should verify after cancel booking success message "Your booking cancelled successfully"
 
     Examples: 
