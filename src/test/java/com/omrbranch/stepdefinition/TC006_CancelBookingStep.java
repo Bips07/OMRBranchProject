@@ -9,10 +9,10 @@ import io.cucumber.java.en.*;
 
 public class TC006_CancelBookingStep extends BaseClass {
 
-	PageObjectManager pom = new PageObjectManager();
+//	PageObjectManager PageObjectManager.getInstance() = new PageObjectManager();
 	@When("User should Cancel the new order ID")
 	public void user_should_cancel_the_new_order_id() {
-		pom.getMyBookingPage().clickCancel();
+		PageObjectManager.getInstance().getMyBookingPage().clickCancel();
 	}
 
 	@Then("User should verify after cancel booking success message {string}")
@@ -20,24 +20,24 @@ public class TC006_CancelBookingStep extends BaseClass {
 		waitTime(2);
 		acceptAlert();
 		waitTime(2);
-		String actMessage = pom.getMyBookingPage().getMessage();
+		String actMessage = PageObjectManager.getInstance().getMyBookingPage().getMessage();
 		Assert.assertEquals("Cancel message is incorrect", expMessage,actMessage);
 		
 	}
 
 	@When("User should Cancel the existing order ID {string}")
 	public void user_should_cancel_the_existing_order_id(String orderId) {
-		pom.getMyBookingPage().cancelExistingOrderId(orderId);
+		PageObjectManager.getInstance().getMyBookingPage().cancelExistingOrderId(orderId);
 	}
 
 	@When("User should Cancel the first order ID")
 	public void user_should_cancel_the_first_order_id() {
-		pom.getMyBookingPage().cancelFirstHotel();
+		PageObjectManager.getInstance().getMyBookingPage().cancelFirstHotel();
 	}
 
 	@When("User should Cancel the last order ID")
 	public void user_should_cancel_the_last_order_id() {
-		pom.getMyBookingPage().cancelLastHotel();
+		PageObjectManager.getInstance().getMyBookingPage().cancelLastHotel();
 	}
 
 }

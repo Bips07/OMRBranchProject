@@ -1,5 +1,7 @@
 package com.omrbranch.objectmanager;
 
+import org.openqa.selenium.WebDriver;
+
 import com.omrbranch.pages.BookHotelPage;
 import com.omrbranch.pages.BookingConfirmationPage;
 import com.omrbranch.pages.ExploreHotelPage;
@@ -15,6 +17,19 @@ public class PageObjectManager {
 	private BookHotelPage bookHotelPage;
 	private BookingConfirmationPage bookingConfirmationPage;
 	private MyBookingPage myBookingPage;
+	private static PageObjectManager pom;
+	public static WebDriver driver;
+	
+	private PageObjectManager() {
+//		this.driver = driver;
+		
+	}
+	public static PageObjectManager getInstance() {
+		if(pom==null) {
+			pom = new PageObjectManager();
+		}
+		return pom;
+	}
 	
 	public LoginPage getLoginPage() {
 		return (loginPage==null)?loginPage = new LoginPage():loginPage;
