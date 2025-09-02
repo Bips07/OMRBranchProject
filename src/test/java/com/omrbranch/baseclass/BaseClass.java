@@ -26,7 +26,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseClass {
-	
+
 	public static WebDriver driver;
 	Select select;
 	JavascriptExecutor executor;
@@ -38,30 +38,31 @@ public class BaseClass {
 	static ChromeOptions arg;
 
 	public void switchFrameByElement(WebElement element) {
-		
+
 		driver.switchTo().frame(element);
 	}
-	
+
 	public void elementClickJS(WebElement element) {
 		executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].click();",element);
+		executor.executeScript("arguments[0].click();", element);
 	}
-	
+
 	public void timeOut(int sec) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(sec));
 	}
+
 	public void explicitWait(By by) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
-	
+
 	public String getPropertiesFileValue(String key) throws FileNotFoundException, IOException {
 		prop = new Properties();
-		prop.load(new FileInputStream(System.getProperty("user.dir")+"\\config\\config.properties"));
+		prop.load(new FileInputStream(System.getProperty("user.dir") + "\\config\\config.properties"));
 		String value = prop.getProperty(key);
 		return value;
 	}
-	
+
 	public void scroll(WebElement element) {
 		executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].scrollIntoView({block:'center'})", element);
@@ -71,9 +72,10 @@ public class BaseClass {
 		driver.navigate().to(url);
 	}
 
-	public void switchToDefault()	{
+	public void switchToDefault() {
 		driver.switchTo().defaultContent();
 	}
+
 	public void acceptAlert() {
 		alert = driver.switchTo().alert();
 		alert.accept();
@@ -93,7 +95,7 @@ public class BaseClass {
 	public void screenshot(String fileName) throws IOException {
 		takesScreenshot = (TakesScreenshot) driver;
 		File screenshotAs = takesScreenshot.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshotAs, new File(System.getProperty("user.dir") +"\\target\\"+ fileName + ".png"));
+		FileUtils.copyFile(screenshotAs, new File(System.getProperty("user.dir") + "\\target\\" + fileName + ".png"));
 	}
 
 	public void switchToChildWindow() {
@@ -160,13 +162,23 @@ public class BaseClass {
 	}
 
 	public static void browserLaunch() {
-		arg = new ChromeOptions();
-//		arg.addArguments("--incognito");
-//		arg.addArguments("--headless");
-		driver = new ChromeDriver(arg);
-		if(driver!=null) {
-			driver.manage().deleteAllCookies();
+		
+		if (driver == null) {
+			arg = new ChromeOptions();
+//			arg.addArguments("--incognito");
+//			arg.addArguments("--headless");
+			driver = new ChromeDriver();
+			if (driver != null) {
+				driver.manage().deleteAllCookies();
+			}
 		}
+		else {
+			if (driver != null) {
+				driver.manage().deleteAllCookies();
+			}
+			driver.navigate().to("https://omrbranch.com");
+		}
+		maximizeWindow();
 	}
 
 	public static void enterApplnUrl(String url) {
@@ -183,10 +195,10 @@ public class BaseClass {
 			element.sendKeys(data);
 		}
 	}
-	
+
 	public void elementClear(WebElement element) {
 		visibilityOfElement(element);
-		if(element.isDisplayed()&&element.isEnabled())
+		if (element.isDisplayed() && element.isEnabled())
 			element.clear();
 	}
 
@@ -240,7 +252,8 @@ public class BaseClass {
 	}
 
 	public static void closeWindow() {
-		driver.quit();
+		driver.close();
+		driver=null;
 	}
 
 	public String elementGetText(WebElement element) {
@@ -262,7 +275,7 @@ public class BaseClass {
 		String domProperty = element.getDomProperty(attributeName);
 		return domProperty;
 	}
-	
+
 	public void waitTime(int sec) {
 		try {
 			Thread.sleep(Duration.ofSeconds(sec));
@@ -271,7 +284,7 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void highlight(WebElement element) {
 		executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].style.border='3px solid red'", element);

@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions;
 		"pretty",
 		"json:target\\Search.json" }, glue = "com.omrbranch.stepdefinition", features = "src\\test\\resources")
 
-public class TestRunnerClass2 {
+public class TestRunnerClass2  {
 
 
 	@AfterClass

@@ -5,6 +5,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import com.omrbranch.baseclass.BaseClass;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
@@ -25,6 +26,11 @@ public class HooksClass extends BaseClass {
 			byte[] b = ts.getScreenshotAs(OutputType.BYTES);
 			s.attach(b,"image/png",s.getName());
 		}
+		//closeWindow();
+	}
+	@AfterAll
+	public static void afterAll() {
+		System.out.println("afterall");
 		closeWindow();
 	}
 
